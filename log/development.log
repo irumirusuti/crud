@@ -1666,3 +1666,4 @@ Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:38:14) [GET]
   [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
 Rendering forums/index
 Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/]
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
