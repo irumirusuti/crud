@@ -5,3 +5,7 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+Forum.create(:title => "遊戲區" , :context => "遊戲密技攻略")
+Forum.create(:title => "釣魚區" , :context => "聊天吹又室")
+Forum.create(:title => "地下室" , :context => "暗盤交易物品儲藏庫")

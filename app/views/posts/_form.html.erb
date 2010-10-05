@@ -1,0 +1,7 @@
+<% form_for([@forum, @post]) do |p| %>
+<p><%= p.label :title , '文章標題' %>:
+<%= p.text_field :title %></p>
+<p><%= p.label :context , '內容' %>:
+<%= p.text_field :context %></p>
+<%= p.submit '送出' %>
+<% end %>

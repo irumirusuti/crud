@@ -1,0 +1,1618 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (14.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (6.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateForums (20101005062546)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "context" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101005062546')[0m
+Migrating to CreatePosts (20101005062637)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "context" text, "forum_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101005062637')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("forums")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mForum Create (0.4ms)[0m   [0;1mINSERT INTO "forums" ("created_at", "title", "updated_at", "context") VALUES('2010-10-05 08:03:13', '遊戲區', '2010-10-05 08:03:13', '遊戲密技攻略')[0m
+  [4;35;1mForum Create (0.3ms)[0m   [0mINSERT INTO "forums" ("created_at", "title", "updated_at", "context") VALUES('2010-10-05 08:03:13', '釣魚區', '2010-10-05 08:03:13', '聊天吹又室')[0m
+  [4;36;1mForum Create (0.4ms)[0m   [0;1mINSERT INTO "forums" ("created_at", "title", "updated_at", "context") VALUES('2010-10-05 08:03:13', '地下室', '2010-10-05 08:03:13', '暗盤交易物品儲藏庫')[0m
+
+
+Processing ForumController#index (for 127.0.0.1 at 2010-10-05 16:03:55) [GET]
+  [4;36;1mForum Load (0.7ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forum/index
+Completed in 45ms (View: 34, DB: 1) | 200 OK [http://127.0.0.1/forum]
+
+
+Processing ForumController#index (for 127.0.0.1 at 2010-10-05 16:07:33) [GET]
+  [4;35;1mForum Load (0.6ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forum/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://127.0.0.1/forum]
+
+
+Processing ForumController#index (for 127.0.0.1 at 2010-10-05 16:14:12) [GET]
+  [4;36;1mForum Load (0.6ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forum/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forum]
+
+
+Processing ForumController#new (for 127.0.0.1 at 2010-10-05 16:14:14) [GET]
+Rendering forum/new
+Completed in 129ms (View: 122, DB: 0) | 200 OK [http://127.0.0.1/forum/new]
+
+
+Processing ForumController#index (for 127.0.0.1 at 2010-10-05 16:15:39) [GET]
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forum/index
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://127.0.0.1/forum]
+
+
+Processing ForumController#show (for 127.0.0.1 at 2010-10-05 16:15:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forum/show
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://127.0.0.1/forum/1]
+
+
+Processing ForumController#index (for 127.0.0.1 at 2010-10-05 16:25:15) [GET]
+  [4;35;1mForum Load (0.6ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forum/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/forum]
+
+
+Processing ForumController#new (for 127.0.0.1 at 2010-10-05 16:25:16) [GET]
+Rendering forum/new
+
+ActionView::TemplateError (undefined method `forums_path' for #<ActionView::Base:0x1041b0558>) on line #2 of app/views/forum/new.html.erb:
+1: <h1>開辦新區</h1>
+2: <% form_for @forum do |f| %>
+3: 	<%= f.label :title , '討論區標題' %>:
+4: 	<%= f.text_field :title %></br>
+5: 	<%= f.label :context , '文字解說' %>:
+
+    app/views/forum/new.html.erb:2
+
+Rendered rescues/_trace (41.9ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumController#new (for 127.0.0.1 at 2010-10-05 16:25:56) [GET]
+Rendering forum/new
+Completed in 53ms (View: 48, DB: 0) | 200 OK [http://127.0.0.1/forum/new]
+
+
+Processing ForumController#new (for 127.0.0.1 at 2010-10-05 16:26:56) [GET]
+Rendering forum/new
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/forum/new]
+
+
+Processing ForumController#1 (for 127.0.0.1 at 2010-10-05 16:35:21) [GET]
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ForumController#index (for 127.0.0.1 at 2010-10-05 16:35:46) [GET]
+  [4;36;1mForum Load (0.6ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forum/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/forum]
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2010-10-05 16:35:48) [GET]
+  Parameters: {"id"=>"1"}
+
+NameError (uninitialized constant ForumsController):
+  
+
+Rendered rescues/_trace (28.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2010-10-05 16:36:33) [GET]
+  Parameters: {"id"=>"1"}
+
+NameError (uninitialized constant ForumsController):
+  
+
+Rendered rescues/_trace (27.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2010-10-05 16:36:34) [GET]
+  Parameters: {"id"=>"1"}
+
+NameError (uninitialized constant ForumsController):
+  
+
+Rendered rescues/_trace (100.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2010-10-05 16:36:39) [GET]
+  Parameters: {"id"=>"1"}
+
+NameError (uninitialized constant ForumsController):
+  
+
+Rendered rescues/_trace (27.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 16:37:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+ActionView::MissingTemplate (Missing template forums/show.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 16:37:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+
+ActionView::TemplateError (undefined local variable or method `new_post_path' for #<ActionView::Base:0x104178770>) on line #4 of app/views/forums/show.html.erb:
+1: <h1><%= @forum.title %></h1>
+2: <p><%= @forum.context %></p>
+3: 
+4: <%= link_to '開新主題' , new_post_path %>
+
+    app/views/forums/show.html.erb:4
+
+Rendered rescues/_trace (38.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-05 16:43:05) [GET]
+
+ActionController::RoutingError (No route matches "/forums/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 16:43:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 16:43:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+
+ActionView::TemplateError (undefined local variable or method `new_forum_post_path' for #<ActionView::Base:0x104130060>) on line #4 of app/views/forums/show.html.erb:
+1: <h1><%= @forum.title %></h1>
+2: <p><%= @forum.context %></p>
+3: 
+4: <%= link_to '開新主題' , new_forum_post_path %>
+
+    app/views/forums/show.html.erb:4
+
+Rendered rescues/_trace (38.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 16:46:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+
+ActionView::TemplateError (undefined local variable or method `new_forum_post_path' for #<ActionView::Base:0x1041ebec8>) on line #4 of app/views/forums/show.html.erb:
+1: <h1><%= @forum.title %></h1>
+2: <p><%= @forum.context %></p>
+3: 
+4: <%= link_to '開新主題' , new_forum_post_path %>
+
+    app/views/forums/show.html.erb:4
+
+Rendered rescues/_trace (107.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 16:46:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+
+ActionView::TemplateError (new_forum_posts_url failed to generate from {:action=>"new", :controller=>"posts"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["forums", :forum_id, "posts", "new"] - are they all satisfied?) on line #4 of app/views/forums/show.html.erb:
+1: <h1><%= @forum.title %></h1>
+2: <p><%= @forum.context %></p>
+3: 
+4: <%= link_to '開新主題' , new_forum_posts_path %>
+
+    (eval):21:in `new_forum_posts_path'
+    app/views/forums/show.html.erb:4
+
+Rendered rescues/_trace (41.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 16:47:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+Completed in 80ms (View: 75, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 16:47:49) [GET]
+  Parameters: {"forum_id"=>"1"}
+Rendering posts/new
+Completed in 20ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 16:51:53) [GET]
+  Parameters: {"forum_id"=>"1"}
+Rendering posts/new
+Completed in 5ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 16:59:01) [GET]
+  Parameters: {"forum_id"=>"1"}
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0x1043bf358>) on line #2 of app/views/posts/new.html.erb:
+1: <h1>新建主題</h1>
+2: <% form_for @post do |p| %>
+3: <p><%= p.label :title , '文章標題' %>:
+4: <%= p.text_field :title %></p>
+5: <p><%= p.label :context , '內容' %>:
+
+    app/views/posts/new.html.erb:2
+
+Rendered rescues/_trace (40.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:00:08) [GET]
+  Parameters: {"forum_id"=>"1"}
+Rendering posts/new
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-05 17:00:30) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE="}
+
+ActionController::MethodNotAllowed (Only get requests are allowed.):
+  
+
+Rendered rescues/_trace (24.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (method_not_allowed)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:02:38) [GET]
+  Parameters: {"forum_id"=>"1"}
+Rendering posts/new
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:02:41) [GET]
+  Parameters: {"forum_id"=>"1"}
+Rendering posts/new
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:03:01) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:03:01', NULL, '2010-10-05 09:03:01', NULL, NULL)[0m
+
+NoMethodError (undefined method `post_url' for #<PostsController:0x104196b80>):
+  app/controllers/posts_controller.rb:14:in `create'
+
+Rendered rescues/_trace (100.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:04:13) [GET]
+  Parameters: {"forum_id"=>"1"}
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0x1043ec538>) on line #2 of app/views/posts/new.html.erb:
+1: <h1>新建主題</h1>
+2: <% form_for([ @forum, @post]) do |p| %>
+3: <p><%= p.label :title , '文章標題' %>:
+4: <%= p.text_field :title %></p>
+5: <p><%= p.label :context , '內容' %>:
+
+    app/views/posts/new.html.erb:2
+
+Rendered rescues/_trace (41.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:09:07) [GET]
+  Parameters: {"forum_id"=>"1"}
+
+ActiveRecord::RecordNotFound (Couldn't find Forum without an ID):
+  app/controllers/posts_controller.rb:47:in `find_forum'
+
+Rendered rescues/_trace (37.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:09:37) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:09:51) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:09:51', NULL, '2010-10-05 09:09:51', NULL, NULL)[0m
+
+NoMethodError (undefined method `post_url' for #<PostsController:0x10426a200>):
+  app/controllers/posts_controller.rb:17:in `create'
+
+Rendered rescues/_trace (104.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:10:29) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:10:29', 'test', '2010-10-05 09:10:29', NULL, 'patapatapata')[0m
+
+NoMethodError (undefined method `post_url' for #<PostsController:0x10448ed10>):
+  app/controllers/posts_controller.rb:17:in `create'
+
+Rendered rescues/_trace (34.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:10:32) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:10:36) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:10:36', 'test', '2010-10-05 09:10:36', NULL, 'patapatapata')[0m
+
+NoMethodError (undefined method `post_url' for #<PostsController:0x1041981d8>):
+  app/controllers/posts_controller.rb:17:in `create'
+
+Rendered rescues/_trace (101.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:11:44) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  app/controllers/posts_controller.rb:24:in `show'
+
+Rendered rescues/_trace (33.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:11:51) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:11:51', 'test', '2010-10-05 09:11:51', NULL, 'patapatapata')[0m
+Redirected to http://127.0.0.1:3000/forums/1/posts
+Completed in 13ms (DB: 1) | 302 Found [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:11:51) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  app/controllers/posts_controller.rb:24:in `show'
+
+Rendered rescues/_trace (33.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:12:04) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  app/controllers/posts_controller.rb:24:in `show'
+
+Rendered rescues/_trace (32.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-05 17:12:09) [GET]
+
+ActionController::RoutingError (No route matches "/forums/1/posts/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-05 17:12:14) [GET]
+
+ActionController::RoutingError (No route matches "/forums/1/post/1" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:21:57) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:22:01) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:22:01', 'test', '2010-10-05 09:22:01', NULL, 'patapatapata')[0m
+Redirected to http://127.0.0.1:3000/forums/6/posts
+Completed in 14ms (DB: 1) | 302 Found [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:22:01) [GET]
+  Parameters: {"forum_id"=>"6"}
+  [4;35;1mForum Load (0.1ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 6) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Forum with ID=6):
+  app/controllers/posts_controller.rb:47:in `find_forum'
+
+Rendered rescues/_trace (33.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:23:31) [GET]
+  Parameters: {"id"=>"1", "forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering posts/show
+Completed in 96ms (View: 87, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts/1]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:23:37) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:23:40) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:23:40', 'test', '2010-10-05 09:23:40', NULL, 'patapatapata')[0m
+
+NoMethodError (undefined method `post_url' for #<PostsController:0x1043bd558>):
+  app/controllers/posts_controller.rb:17:in `create'
+
+Rendered rescues/_trace (33.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:28:53) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 80ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 17:29:54) [GET]
+  [4;36;1mForum Load (0.7ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 79ms (View: 67, DB: 1) | 200 OK [http://127.0.0.1/forums]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:29:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+
+ActionView::TemplateError (undefined method `new_forum_posts_path' for #<ActionView::Base:0x104480288>) on line #4 of app/views/forums/show.html.erb:
+1: <h1><%= @forum.title %></h1>
+2: <p><%= @forum.context %></p>
+3: 
+4: <%= link_to '開新主題' , new_forum_posts_path(@forum) %>
+
+    app/views/forums/show.html.erb:4
+
+Rendered rescues/_trace (42.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:30:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:30:32) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 86ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:30:42) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Create (0.5ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:30:42', 'test', '2010-10-05 09:30:42', NULL, 'patapatapata')[0m
+
+NoMethodError (undefined method `post_url' for #<PostsController:0x10444dc70>):
+  app/controllers/posts_controller.rb:17:in `create'
+
+Rendered rescues/_trace (33.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:31:48) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 14ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:31:52) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:31:52', 'test', '2010-10-05 09:31:52', NULL, 'patapatapata')[0m
+
+ActionController::RoutingError (forum_post_url failed to generate from {:action=>"show", :controller=>"posts", :forum_id=>#<Post id: 9, title: "test", context: "patapatapata", forum_id: nil, created_at: "2010-10-05 09:31:52", updated_at: "2010-10-05 09:31:52">}, expected: {:action=>"show", :controller=>"posts"}, diff: {:forum_id=>#<Post id: 9, title: "test", context: "patapatapata", forum_id: nil, created_at: "2010-10-05 09:31:52", updated_at: "2010-10-05 09:31:52">}):
+  (eval):17:in `forum_post_path'
+  app/controllers/posts_controller.rb:17:in `create'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:34:26) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 10ms (View: 1, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:34:29) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:34:43) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"test", "context"=>"patapatapata"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+NoMethodError (undefined method `before_filter' for #<PostsController:0x10436f970>):
+  app/controllers/posts_controller.rb:15:in `create'
+
+Rendered rescues/_trace (31.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:37:55) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 17ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:38:12) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"手土手土", "context"=>"gfgfdff"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+NoMethodError (undefined method `before_filter' for #<PostsController:0x1041191f8>):
+  app/controllers/posts_controller.rb:15:in `create'
+
+Rendered rescues/_trace (31.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:39:17) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:39:19) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"手土手土", "context"=>"gfgfdff"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+NoMethodError (undefined method `before_filter' for #<PostsController:0x1042b2258>):
+  app/controllers/posts_controller.rb:15:in `create'
+
+Rendered rescues/_trace (32.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:39:37) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 83ms (View: 11, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:39:38) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"手土手土", "context"=>"gfgfdff"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+NoMethodError (undefined method `before_filter' for #<PostsController:0x104463ed0>):
+  app/controllers/posts_controller.rb:15:in `create'
+
+Rendered rescues/_trace (35.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-10-05 17:40:56) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"手土手土", "context"=>"gfgfdff"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+
+NoMethodError (undefined method `before_filte' for PostsController:Class):
+  app/controllers/posts_controller.rb:3
+
+Rendered rescues/_trace (33.2ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:41:13) [GET]
+  Parameters: {"forum_id"=>"1"}
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0x101163008>) on line #2 of app/views/posts/new.html.erb:
+1: <h1>新建主題</h1>
+2: <% form_for([@forum, @post]) do |p| %>
+3: <p><%= p.label :title , '文章標題' %>:
+4: <%= p.text_field :title %></p>
+5: <p><%= p.label :context , '內容' %>:
+
+    app/views/posts/new.html.erb:2
+
+Rendered rescues/_trace (45.8ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:41:36) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 83ms (View: 11, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:41:36) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 13ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:41:38) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"手土手土", "context"=>"gfgfdff"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:41:38', '手土手土', '2010-10-05 09:41:38', NULL, 'gfgfdff')[0m
+
+ActionController::RoutingError (forum_post_url failed to generate from {:action=>"show", :controller=>"posts", :forum_id=>#<Post id: 10, title: "手土手土", context: "gfgfdff", forum_id: nil, created_at: "2010-10-05 09:41:38", updated_at: "2010-10-05 09:41:38">}, expected: {:action=>"show", :controller=>"posts"}, diff: {:forum_id=>#<Post id: 10, title: "手土手土", context: "gfgfdff", forum_id: nil, created_at: "2010-10-05 09:41:38", updated_at: "2010-10-05 09:41:38">}):
+  (eval):17:in `forum_post_path'
+  app/controllers/posts_controller.rb:17:in `create'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:42:40) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 85ms (View: 11, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:42:40) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-05 17:42:41) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering posts/new
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-05 17:42:42) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"手土手土", "context"=>"gfgfdff"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "context") VALUES('2010-10-05 09:42:42', '手土手土', '2010-10-05 09:42:42', NULL, 'gfgfdff')[0m
+Redirected to http://127.0.0.1:3000/forums/1/posts/11
+Completed in 14ms (DB: 1) | 302 Found [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:42:42) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 15ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:44:50) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 14ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:45:14) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 81ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:45:16) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 11ms (View: 2, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:45:55) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:46:52) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:47:21) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 15ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:47:37) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 79ms (View: 70, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 17:48:15) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"11"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+Rendering posts/show
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:48:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:49:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+
+ActionView::TemplateError (undefined method `posts' for #<Forum:0x104360308>) on line #3 of app/views/forums/show.html.erb:
+1: <h1><%= @forum.title %></h1>
+2: <p><%= @forum.context %></p>
+3: <% @forum.posts.each do |post| %>
+4: <%= post.title %>
+5: 
+6: <% end %>
+
+    app/views/forums/show.html.erb:3
+
+Rendered rescues/_trace (111.7ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:49:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 1) [0m
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:50:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 1) [0m
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:50:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 1) [0m
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:50:28) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 13ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:50:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+ERROR: compiling _run_erb_app47views47forums47show46html46erb RAISED compile error
+/Users/techbang/projects/crud_practice/app/views/forums/show.html.erb:7: no .<digit> floating literal anymore; put 0 before dot
+...t_buffer.concat(( @forum.post.1 ).to_s); @output_buffer.conc...
+                              ^
+/Users/techbang/projects/crud_practice/app/views/forums/show.html.erb:7: syntax error, unexpected tINTEGER
+..._buffer.concat(( @forum.post.1 ).to_s); @output_buffer.conca...
+                              ^
+Function body:           def _run_erb_app47views47forums47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat(( @forum.title ).to_s); @output_buffer.concat "</h1>\n<p>"
+; @output_buffer.concat(( @forum.context ).to_s); @output_buffer.concat "</p>\n"
+;  @forum.post.each do |post| ; @output_buffer.concat "\n"
+; @output_buffer.concat(( post.title ).to_s); @output_buffer.concat "\n\n"
+
+;  end ; @output_buffer.concat "\n"
+; @output_buffer.concat(( @forum.post.1 ).to_s); @output_buffer.concat "\n\n"
+
+; @output_buffer.concat(( link_to '開新主題' , new_forum_post_path(@forum) ).to_s); @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/techbang/projects/crud_practice/app/views/forums/show.html.erb:13:in `compile!'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/techbang/projects/crud_practice/app/views/forums/show.html.erb:7: no .<digit> floating literal anymore; put 0 before dot
+...t_buffer.concat(( @forum.post.1 ).to_s); @output_buffer.conc...
+                              ^
+/Users/techbang/projects/crud_practice/app/views/forums/show.html.erb:7: syntax error, unexpected tINTEGER
+..._buffer.concat(( @forum.post.1 ).to_s); @output_buffer.conca...
+                              ^) on line #7 of app/views/forums/show.html.erb:
+4: <%= post.title %>
+5: 
+6: <% end %>
+7: <%= @forum.post.1 %>
+8: 
+9: <%= link_to '開新主題' , new_forum_post_path(@forum) %>
+
+    app/views/forums/show.html.erb:13:in `compile!'
+
+Rendered rescues/_trace (37.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:51:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 1) [0m
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 17:52:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+
+ActionView::TemplateError (undefined method `posts' for #<Forum:0x1042b8680>) on line #3 of app/views/forums/show.html.erb:
+1: <h1><%= @forum.title %></h1>
+2: <p><%= @forum.context %></p>
+3: <% @forum.posts.each do |post| %>
+4: <%= post.title %>
+5: 
+6: <% end %>
+
+    app/views/forums/show.html.erb:3
+
+Rendered rescues/_trace (108.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#1 (for 127.0.0.1 at 2010-10-05 17:54:02) [GET]
+  Parameters: {"id"=>"post"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:54:07) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 24ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:55:04) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (1.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 16ms (View: 7, DB: 2) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:55:18) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:55:20) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 79ms (View: 70, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:55:28) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:55:45) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 18ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:55:54) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (1.5ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 16ms (View: 7, DB: 2) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:56:23) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 17:56:25) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 12ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 17:57:15) [GET]
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums/]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 17:59:06) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forums/index
+
+ActionView::TemplateError (edit_forum_url failed to generate from {:action=>"edit", :controller=>"forums"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["forums", :id, "edit"] - are they all satisfied?) on line #4 of app/views/forums/index.html.erb:
+1: <h1>Forum#index</h1>
+2: <% @forums.each do |forum| %>
+3: <h2><%= link_to forum.title , forum %></h2>
+4: 	<p><%= forum.context %> | <%= link_to '編輯' , edit_forum_path %></p>
+5: <% end %>
+6: 
+7: <p><%= link_to '開辦新區' , new_forum_path  %></p>
+
+    (eval):17:in `edit_forum_path'
+    app/views/forums/index.html.erb:4
+    app/views/forums/index.html.erb:2:in `each'
+    app/views/forums/index.html.erb:2
+
+Rendered rescues/_trace (42.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 17:59:33) [GET]
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 15ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/forums/]
+
+
+Processing ForumsController#edit (for 127.0.0.1 at 2010-10-05 17:59:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/edit
+Completed in 55ms (View: 50, DB: 0) | 200 OK [http://127.0.0.1/forums/1/edit]
+
+
+Processing ForumsController#new (for 127.0.0.1 at 2010-10-05 18:04:34) [GET]
+Rendering forums/new
+
+ActionView::TemplateError (Missing template forums/_forum.erb in view path app/views) on line #2 of app/views/forums/new.html.erb:
+1: <h1>開辦新區</h1>
+2: <%= render @forum %>
+
+    app/views/forums/new.html.erb:2
+
+Rendered rescues/_trace (40.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#new (for 127.0.0.1 at 2010-10-05 18:04:55) [GET]
+Rendering forums/new
+Rendered forums/_form (3.7ms)
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://127.0.0.1/forums/new]
+
+
+Processing ForumsController#edit (for 127.0.0.1 at 2010-10-05 18:06:53) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering forums/edit
+Rendered forums/_form (3.5ms)
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/forums/2/edit]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 18:06:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+Rendering forums/show
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:07:24) [GET]
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forums/index
+
+ActionView::TemplateError (forum_posts_url failed to generate from {:action=>"index", :controller=>"posts"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["forums", :forum_id, "posts"] - are they all satisfied?) on line #3 of app/views/forums/index.html.erb:
+1: <h1>Forum#index</h1>
+2: <% @forums.each do |forum| %>
+3: <h2><%= link_to forum.title , forum_posts_path %></h2>
+4: 	<p><%= forum.context %> | <%= link_to '編輯' , edit_forum_path(forum) %></p>
+5: <% end %>
+6: 
+
+    (eval):21:in `forum_posts_path'
+    app/views/forums/index.html.erb:3
+    app/views/forums/index.html.erb:2:in `each'
+    app/views/forums/index.html.erb:2
+
+Rendered rescues/_trace (42.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:07:43) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:07:44) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 12ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:09:34) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 18ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:10:50) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 22ms (View: 12, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:11:19) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 21ms (View: 12, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:14:26) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+
+ActionView::TemplateError (undefined method `post_path' for #<ActionView::Base:0x1044ec578>) on line #6 of app/views/posts/index.html.erb:
+3: <hr>
+4: <% @posts.each do |post| %>
+5: <p><%= link_to post.title , forum_post_path(@forum, post) %> | <%= post.context %>
+6: <br/><%= link_to '編輯' , edit_forum_post_path(@forum , post) %> | <%= link_to '刪除' , post , :confirm => '確定刪除？' ,  :method => :delete %></p>
+7: <% end %>
+8: <hr>
+9: <%= link_to '開新主題' , new_forum_post_path(@forum) %>
+
+    app/views/posts/index.html.erb:6
+    app/views/posts/index.html.erb:4:in `each'
+    app/views/posts/index.html.erb:4
+
+Rendered rescues/_trace (40.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:15:23) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 43ms (View: 32, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:16:11) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 41ms (View: 31, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:16:53) [GET]
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://127.0.0.1/forums]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:17:58) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://127.0.0.1/forums]
+
+
+Processing ForumsController#destroy (for 127.0.0.1 at 2010-10-05 18:18:09) [DELETE]
+  Parameters: {"authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "id"=>"3"}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.delete):
+  app/controllers/forums_controller.rb:39:in `destroy'
+
+Rendered rescues/_trace (106.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:18:42) [GET]
+  [4;35;1mForum Load (0.6ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://127.0.0.1/forums]
+
+
+Processing ForumsController#destroy (for 127.0.0.1 at 2010-10-05 18:18:48) [DELETE]
+  Parameters: {"authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "id"=>"3"}
+  [4;36;1mForum Load (2.0ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 3) [0m
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/forums_controller.rb:39:in `delete'
+  app/controllers/forums_controller.rb:39:in `destroy'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 18:19:13) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 3) [0m
+Rendering forums/show
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/forums/3]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 18:19:16) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 3) [0m
+Rendering forums/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/forums/3]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:19:34) [GET]
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 13ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/forums/]
+
+
+Processing ForumsController#destroy (for 127.0.0.1 at 2010-10-05 18:19:36) [DELETE]
+  Parameters: {"authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "id"=>"3"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 3) [0m
+  [4;35;1mForum Delete all (1.7ms)[0m   [0mDELETE FROM "forums" WHERE ("id" IN (3)) [0m
+Redirected to http://127.0.0.1:3000/forums
+Completed in 8ms (DB: 2) | 302 Found [http://127.0.0.1/forums/3]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:19:37) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 18:19:43) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mForum Load (0.1ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 3) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Forum with ID=3):
+  app/controllers/forums_controller.rb:21:in `show'
+
+Rendered rescues/_trace (33.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:19:47) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/forums]
+
+
+Processing ForumsController#edit (for 127.0.0.1 at 2010-10-05 18:19:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering forums/edit
+Rendered forums/_form (3.3ms)
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/forums/2/edit]
+
+
+Processing ForumsController#update (for 127.0.0.1 at 2010-10-05 18:19:56) [PUT]
+  Parameters: {"commit"=>"確定", "forum"=>{"title"=>"釣魚區", "context"=>"聊天吹水室"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `update_attribute' for #<Class:0x1044f05b0>):
+  app/controllers/forums_controller.rb:30:in `update'
+
+Rendered rescues/_trace (32.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 18:20:26) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering forums/show
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/forums/2]
+
+
+Processing ForumsController#update (for 127.0.0.1 at 2010-10-05 18:20:29) [PUT]
+  Parameters: {"commit"=>"確定", "forum"=>{"title"=>"釣魚區", "context"=>"聊天吹水室"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+
+ArgumentError (wrong number of arguments (0 for 2)):
+  app/controllers/forums_controller.rb:30:in `update_attribute'
+  app/controllers/forums_controller.rb:30:in `update'
+
+Rendered rescues/_trace (31.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#update (for 127.0.0.1 at 2010-10-05 18:24:14) [PUT]
+  Parameters: {"commit"=>"確定", "forum"=>{"title"=>"釣魚區", "context"=>"聊天吹水室"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mForum Update (0.3ms)[0m   [0mUPDATE "forums" SET "updated_at" = '2010-10-05 10:24:14', "context" = '聊天吹水室' WHERE "id" = 2[0m
+Redirected to http://127.0.0.1:3000/forums/2
+Completed in 79ms (DB: 0) | 302 Found [http://127.0.0.1/forums/2]
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-05 18:24:14) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering forums/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/forums/2]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:24:27) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 38ms (View: 29, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 18:24:39) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering posts/show
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 18:24:45) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"3"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering posts/show
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/3]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2010-10-05 18:24:48) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering posts/edit
+Rendered posts/_form (68.2ms)
+Completed in 84ms (View: 75, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/1/edit]
+
+
+Processing PostsController#update (for 127.0.0.1 at 2010-10-05 18:24:54) [PUT]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"tt", "context"=>"aaa"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1", "id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mPost Update (0.3ms)[0m   [0mUPDATE "posts" SET "updated_at" = '2010-10-05 10:24:54', "context" = 'aaa', "title" = 'tt' WHERE "id" = 1[0m
+
+NoMethodError (undefined method `post_url' for #<PostsController:0x10448cf10>):
+  app/controllers/posts_controller.rb:34:in `update'
+
+Rendered rescues/_trace (34.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#update (for 127.0.0.1 at 2010-10-05 18:25:18) [PUT]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"tt", "context"=>"aaa"}, "authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1", "id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Redirected to http://127.0.0.1:3000/forums/1/posts/1
+Completed in 11ms (DB: 0) | 302 Found [http://127.0.0.1/forums/1/posts/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-05 18:25:18) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"1"}
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering posts/show
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:25:19) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 104ms (View: 95, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2010-10-05 18:25:21) [GET]
+  Parameters: {"forum_id"=>"1", "id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+Rendering posts/edit
+Rendered posts/_form (3.8ms)
+Completed in 14ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/1/posts/2/edit]
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2010-10-05 18:25:25) [DELETE]
+  Parameters: {"authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1", "id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+  [4;36;1mPost Delete all (1.6ms)[0m   [0;1mDELETE FROM "posts" WHERE ("id" IN (2)) [0m
+
+ActionView::MissingTemplate (Missing template posts/destroy.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2010-10-05 18:26:07) [DELETE]
+  Parameters: {"authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1", "id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Post with ID=2):
+  app/controllers/posts_controller.rb:41:in `destroy'
+
+Rendered rescues/_trace (36.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:26:11) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 34ms (View: 26, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2010-10-05 18:26:16) [DELETE]
+  Parameters: {"authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1", "id"=>"9"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 9) [0m
+  [4;35;1mPost Delete all (8.7ms)[0m   [0mDELETE FROM "posts" WHERE ("id" IN (9)) [0m
+Redirected to http://127.0.0.1:3000/forums/1/posts
+Completed in 25ms (DB: 10) | 302 Found [http://127.0.0.1/forums/1/posts/9]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:26:16) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 33ms (View: 25, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2010-10-05 18:26:20) [DELETE]
+  Parameters: {"authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "forum_id"=>"1", "id"=>"11"}
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 11) [0m
+  [4;36;1mPost Delete all (1.5ms)[0m   [0;1mDELETE FROM "posts" WHERE ("id" IN (11)) [0m
+Redirected to http://127.0.0.1:3000/forums/1/posts
+Completed in 14ms (DB: 2) | 302 Found [http://127.0.0.1/forums/1/posts/11]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:26:20) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 33ms (View: 23, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
