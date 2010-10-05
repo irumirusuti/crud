@@ -1616,3 +1616,53 @@ Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:26:20) [GET]
   [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
 Rendering posts/index
 Completed in 33ms (View: 23, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:34:18) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 37ms (View: 26, DB: 1) | 200 OK [http://127.0.0.1/forums/1/posts]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:34:25) [GET]
+  [4;35;1mForum Load (0.6ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:35:30) [GET]
+  [4;36;1mForum Load (0.6ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 127ms (View: 100, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing ForumsController#destroy (for 127.0.0.1 at 2010-10-05 18:35:40) [DELETE]
+  Parameters: {"authenticity_token"=>"cstpQ/HlmaNHxFDkUPp2fu0ebmehi4rtnKfVLRz+GfE=", "id"=>"1"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+  [4;36;1mForum Delete all (80.3ms)[0m   [0;1mDELETE FROM "forums" WHERE ("id" IN (1)) [0m
+Redirected to http://127.0.0.1:3000/forums
+Completed in 88ms (DB: 80) | 302 Found [http://127.0.0.1/forums/1]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:35:40) [GET]
+  [4;35;1mForum Load (1.9ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 12ms (View: 5, DB: 2) | 200 OK [http://127.0.0.1/forums]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-05 18:38:08) [GET]
+
+ActiveRecord::RecordNotFound (Couldn't find Forum without an ID):
+  app/controllers/posts_controller.rb:48:in `find_forum'
+
+Rendered rescues/_trace (38.9ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-05 18:38:14) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering forums/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/]
