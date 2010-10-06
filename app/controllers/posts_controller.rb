@@ -2,10 +2,12 @@ class PostsController < ApplicationController
 
   before_filter :find_forum
   before_filter :find_post , :only => [ :show , :edit , :update , :destroy ]
-
+  before_filter :login_required , :only => [ :new , :create , :edit , :update , :destroy ] 
+  
   def index
-    @posts = @forum.posts
+    @posts = @forum.posts.paginate :page => params[:page]
   end
+ 
 
   def new
 	  @post = @forum.posts.build
@@ -39,7 +41,8 @@ class PostsController < ApplicationController
     @post.delete
     redirect_to forum_posts_path(@forum)
   end
-  
+
+
   protected
   def find_forum
     @forum = Forum.find(params[:forum_id])

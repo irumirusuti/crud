@@ -2416,3 +2416,2303 @@ Rendering template within layouts/application
 Rendering posts/new
 Rendered posts/_form (3.0ms)
 Completed in 18ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 14:08:15) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.0ms)
+Completed in 22ms (View: 11, DB: 0) | 200 OK [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 14:26:56) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0x104294b40>) on line #6 of app/views/layouts/application.html.erb:
+3:   <body>
+4:     <h1>CRUD練習論壇</h1>
+5:     <%= link_to ("註冊" , signup_path ) %> /  <%= link_to ("登入" , login_path) %><br/> 
+6:     Hi , <%= current_user %>/ <%= link_to ("登出", logout_path) %> 
+7:     <%= yield %>
+8: <script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"></script>
+9: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+    app/views/layouts/application.html.erb:6
+
+Rendered rescues/_trace (102.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 14:30:13) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.6ms)
+Completed in 18ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-10-06 14:30:21) [GET]
+
+NameError (uninitialized constant User::Authentication):
+  app/models/user.rb:4
+  app/controllers/users_controller.rb:8:in `new'
+
+Rendered rescues/_trace (108.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-10-06 14:37:33) [GET]
+
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  app/controllers/users_controller.rb:8:in `new'
+  app/controllers/users_controller.rb:8:in `new'
+
+Rendered rescues/_trace (39.9ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 14:37:43) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.4ms)
+Completed in 95ms (View: 83, DB: 0) | 200 OK [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-10-06 14:37:44) [GET]
+
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  app/controllers/users_controller.rb:8:in `new'
+  app/controllers/users_controller.rb:8:in `new'
+
+Rendered rescues/_trace (36.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateForums (20101005062546)
+Migrating to CreatePosts (20101005062637)
+Migrating to CreateUsers (20101006041525)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(40), "remember_token_expires_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101006041525')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("forums")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-10-06 14:38:23) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://127.0.0.1/signup]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-10-06 14:38:26) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 84ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-10-06 14:38:57) [POST]
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"ii5zzZtUnJJBCO6ay/pIFNlGmotyErz7LX708br+3n0=", "user"=>{"password_confirmation"=>"clowdo229", "password"=>"clowdo229", "login"=>"kika", "email"=>"irumirusuti@gmail.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kika') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'irumirusuti@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.4ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('', '3342e7a0afb071adc3771a5f21f98653236ee015', '2010-10-06 06:38:57', '5a13df8dd6b1d9083d66fd20a195b4500cb9577e', NULL, '2010-10-06 06:38:57', NULL, 'kika', 'irumirusuti@gmail.com')[0m
+Redirected to http://127.0.0.1:3000/
+Completed in 20ms (DB: 2) | 302 Found [http://127.0.0.1/users]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 14:38:57) [GET]
+  [4;36;1mForum Load (0.6ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+Completed in 20ms (View: 13, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 14:40:22) [GET]
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 14:51:15) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0x1041c2190>) on line #6 of app/views/layouts/application.html.erb:
+3:   <body>
+4:     <h1>CRUD練習論壇</h1>
+5:     <%= link_to("註冊" , signup_path ) %> /  <%= link_to("登入" , login_path) %><br/> 
+6:     Hi , <%= current_user.name %>/ <%= link_to("登出", logout_path) %> 
+7:     <%= yield %>
+8: <script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"></script>
+9: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+    app/views/layouts/application.html.erb:6
+
+Rendered rescues/_trace (39.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 14:58:21) [GET]
+  [4;35;1mForum Load (1.4ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0x1042bafe8>) on line #6 of app/views/layouts/application.html.erb:
+3:   <body>
+4:     <h1>CRUD練習論壇</h1>
+5:     <%= link_to("註冊" , signup_path ) %> /  <%= link_to("登入" , login_path) %><br/> 
+6:     Hi , <%= current_user.name %>/ <%= link_to("登出", logout_path) %> 
+7:     <%= yield %>
+8: <script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"></script>
+9: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+    app/views/layouts/application.html.erb:6
+
+Rendered rescues/_trace (114.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 14:58:43) [GET]
+  [4;36;1mForum Load (0.7ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0x1044338c0>) on line #6 of app/views/layouts/application.html.erb:
+3:   <body>
+4:     <h1>CRUD練習論壇</h1>
+5:     <%= link_to("註冊" , signup_path ) %> /  <%= link_to("登入" , login_path) %><br/> 
+6:     Hi , <%= current_user.name %>/ <%= link_to("登出", logout_path) %> 
+7:     <%= yield %>
+8: <script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"></script>
+9: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+    app/views/layouts/application.html.erb:6
+
+Rendered rescues/_trace (39.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 14:58:47) [GET]
+  [4;35;1mForum Load (4.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0x10413cd88>) on line #6 of app/views/layouts/application.html.erb:
+3:   <body>
+4:     <h1>CRUD練習論壇</h1>
+5:     <%= link_to("註冊" , signup_path ) %> /  <%= link_to("登入" , login_path) %><br/> 
+6:     Hi , <%= current_user.name %>/ <%= link_to("登出", logout_path) %> 
+7:     <%= yield %>
+8: <script src="http://more.handlino.com/javascripts/moretext-1.0.js" type="text/javascript"></script>
+9: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+
+    app/views/layouts/application.html.erb:6
+
+Rendered rescues/_trace (40.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:03:10) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 20ms (View: 15, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:08:01) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 24ms (View: 19, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:08:27) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 23ms (View: 18, DB: 1) | 200 OK [http://127.0.0.1/]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:10:37) [GET]
+  [4;36;1mForum Load (0.6ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 23ms (View: 18, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:10:47) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 23ms (View: 18, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-10-06 15:11:18) [GET]
+Redirected to http://127.0.0.1:3000/
+Completed in 70ms (DB: 0) | 302 Found [http://127.0.0.1/logout]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:11:18) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+Completed in 15ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-10-06 15:11:20) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-06 15:11:24) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"BQx8f8yTrYiRni/Ovdp05EqrjJ4BPh2FOxwBXQWVDBQ=", "login"=>"kika", "password"=>"clowdo229"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'kika') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/
+Completed in 18ms (DB: 0) | 302 Found [http://127.0.0.1/session]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:11:24) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 20ms (View: 15, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:11:27) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 88ms (View: 16, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateForums (20101005062546)
+Migrating to CreatePosts (20101005062637)
+Migrating to CreateUsers (20101006041525)
+Migrating to AddUserInPost (20101006071646)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE "posts" ADD "user_id" integer[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101006071646')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("forums")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-10-06 15:22:00) [GET]
+Redirected to http://127.0.0.1:3000/
+Completed in 10ms (DB: 0) | 302 Found [http://127.0.0.1/logout]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:22:00) [GET]
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:22:08) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/forums/4/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 15:22:10) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+Completed in 76ms (View: 66, DB: 0) | 200 OK [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:35:28) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+Completed in 22ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/4/posts]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-10-06 15:35:30) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-06 15:35:35) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"1lFYOdZnDXdUyAFy2rxoPeas/V/VcycpLJ0Tz7OlImE=", "login"=>"kika", "password"=>"clowdo229"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'kika') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/
+Completed in 17ms (DB: 0) | 302 Found [http://127.0.0.1/session]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:35:35) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 20ms (View: 15, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:54:26) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 85ms (View: 80, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:54:30) [GET]
+  [4;36;1mForum Load (0.6ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:54:33) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+ERROR: compiling _run_erb_app47views47posts47index46html46erb RAISED compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47posts47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat(( link_to ( @forum.title , forum_posts_path ) ).to_s); @output_buffer.concat "</h1>\n<p>"
+; @output_buffer.concat(( @forum.context ).to_s); @output_buffer.concat "</p>\n<h3>\344\270\273\351\241\214\345\210\227\350\241\250</h3>\n<hr>\n"
+
+
+;  @posts.each do |post| ; @output_buffer.concat "\n<p>"
+; @output_buffer.concat(( link_to (post.title , forum_post_path(@forum, post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( post.context ).to_s); @output_buffer.concat "\n<br/>\n"
+
+;  if authorizedi? ; @output_buffer.concat " \n"
+; @output_buffer.concat(( link_to ("編輯" , edit_forum_post_path(@forum , post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) ).to_s); @output_buffer.concat "</p>\n"
+;  end ; @output_buffer.concat "\n<hr>\n"
+
+;  if logged_in? ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to ("開新主題" , new_forum_post_path(@forum)) ).to_s); @output_buffer.concat "\n"
+;  else ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to("請先登入才可發文" , login_path) ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20:in `compile!'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND) on line #18 of app/views/posts/index.html.erb:
+15:   <%= link_to("請先登入才可發文" , login_path) %>
+16: <% end %>
+
+    app/views/posts/index.html.erb:20:in `compile!'
+
+Rendered rescues/_trace (106.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:55:33) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+ERROR: compiling _run_erb_app47views47posts47index46html46erb RAISED compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47posts47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat(( link_to ( @forum.title , forum_posts_path ) ).to_s); @output_buffer.concat "</h1>\n<p>"
+; @output_buffer.concat(( @forum.context ).to_s); @output_buffer.concat "</p>\n<h3>\344\270\273\351\241\214\345\210\227\350\241\250</h3>\n<hr>\n"
+
+
+;  @posts.each do |post| ; @output_buffer.concat "\n<p>"
+; @output_buffer.concat(( link_to (post.title , forum_post_path(@forum, post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( post.context ).to_s); @output_buffer.concat "\n<br/>\n"
+
+;  if authorizedi? ; @output_buffer.concat " \n"
+; @output_buffer.concat(( link_to ("編輯" , edit_forum_post_path(@forum , post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) ).to_s); @output_buffer.concat "</p>\n"
+;  end ; @output_buffer.concat "\n<hr>\n"
+
+;  if logged_in? ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to ("開新主題" , new_forum_post_path(@forum)) ).to_s); @output_buffer.concat "\n"
+;  else ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to ("請先登入才可發文" , login_path) ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20:in `compile!'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND) on line #18 of app/views/posts/index.html.erb:
+15:   <%= link_to ("請先登入才可發文" , login_path) %>
+16: <% end %>
+
+    app/views/posts/index.html.erb:20:in `compile!'
+
+Rendered rescues/_trace (37.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:55:34) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+ERROR: compiling _run_erb_app47views47posts47index46html46erb RAISED compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47posts47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat(( link_to ( @forum.title , forum_posts_path ) ).to_s); @output_buffer.concat "</h1>\n<p>"
+; @output_buffer.concat(( @forum.context ).to_s); @output_buffer.concat "</p>\n<h3>\344\270\273\351\241\214\345\210\227\350\241\250</h3>\n<hr>\n"
+
+
+;  @posts.each do |post| ; @output_buffer.concat "\n<p>"
+; @output_buffer.concat(( link_to (post.title , forum_post_path(@forum, post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( post.context ).to_s); @output_buffer.concat "\n<br/>\n"
+
+;  if authorizedi? ; @output_buffer.concat " \n"
+; @output_buffer.concat(( link_to ("編輯" , edit_forum_post_path(@forum , post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) ).to_s); @output_buffer.concat "</p>\n"
+;  end ; @output_buffer.concat "\n<hr>\n"
+
+;  if logged_in? ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to ("開新主題" , new_forum_post_path(@forum)) ).to_s); @output_buffer.concat "\n"
+;  else ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to ("請先登入才可發文" , login_path) ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20:in `compile!'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND) on line #18 of app/views/posts/index.html.erb:
+15:   <%= link_to ("請先登入才可發文" , login_path) %>
+16: <% end %>
+
+    app/views/posts/index.html.erb:20:in `compile!'
+
+Rendered rescues/_trace (107.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:56:03) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+ERROR: compiling _run_erb_app47views47posts47index46html46erb RAISED compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47posts47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat(( link_to ( @forum.title , forum_posts_path ) ).to_s); @output_buffer.concat "</h1>\n<p>"
+; @output_buffer.concat(( @forum.context ).to_s); @output_buffer.concat "</p>\n<h3>\344\270\273\351\241\214\345\210\227\350\241\250</h3>\n<hr>\n"
+
+
+;  @posts.each do |post| ; @output_buffer.concat "\n<p>"
+; @output_buffer.concat(( link_to (post.title , forum_post_path(@forum, post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( post.context ).to_s); @output_buffer.concat "\n<br/>\n"
+
+;  if authorizedi? ; @output_buffer.concat " \n"
+; @output_buffer.concat(( link_to ("編輯" , edit_forum_post_path(@forum , post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) ).to_s); @output_buffer.concat "</p>\n"
+;  end ; @output_buffer.concat "\n<hr>\n"
+
+;  if logged_in? ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to ("開新主題" , new_forum_post_path(@forum)) ).to_s); @output_buffer.concat "\n"
+;  else ; @output_buffer.concat "\n  "
+; @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20:in `compile!'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND) on line #18 of app/views/posts/index.html.erb:
+15:   <%#= link_to ("請先登入才可發文" , login_path) %>
+16: <% end %>
+
+    app/views/posts/index.html.erb:20:in `compile!'
+
+Rendered rescues/_trace (37.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:56:21) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+ERROR: compiling _run_erb_app47views47posts47index46html46erb RAISED compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_erb_app47views47posts47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat(( link_to ( @forum.title , forum_posts_path ) ).to_s); @output_buffer.concat "</h1>\n<p>"
+; @output_buffer.concat(( @forum.context ).to_s); @output_buffer.concat "</p>\n<h3>\344\270\273\351\241\214\345\210\227\350\241\250</h3>\n<hr>\n"
+
+
+;  @posts.each do |post| ; @output_buffer.concat "\n<p>"
+; @output_buffer.concat(( link_to (post.title , forum_post_path(@forum, post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( post.context ).to_s); @output_buffer.concat "\n<br/>\n"
+
+;  if authorized? ; @output_buffer.concat " \n"
+; @output_buffer.concat(( link_to ("編輯" , edit_forum_post_path(@forum , post)) ).to_s); @output_buffer.concat " | "; @output_buffer.concat(( link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) ).to_s); @output_buffer.concat "</p>\n"
+;  end ; @output_buffer.concat "\n<hr>\n"
+
+;  if logged_in? ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to ("開新主題" , new_forum_post_path(@forum)) ).to_s); @output_buffer.concat "\n"
+;  else ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( link_to ("請先登入才可發文" , login_path) ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20:in `compile!'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/techbang/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Users/techbang/.gem/ruby/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:18: syntax error, unexpected kENSURE, expecting kEND
+/Users/techbang/projects/crud_practice/app/views/posts/index.html.erb:20: syntax error, unexpected $end, expecting kEND) on line #18 of app/views/posts/index.html.erb:
+15:   <%= link_to ("請先登入才可發文" , login_path) %>
+16: <% end %>
+
+    app/views/posts/index.html.erb:20:in `compile!'
+
+Rendered rescues/_trace (39.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:57:05) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 91ms (View: 83, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-10-06 15:57:08) [GET]
+Redirected to http://127.0.0.1:3000/
+Completed in 6ms (DB: 0) | 302 Found [http://127.0.0.1/logout]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:57:08) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:57:11) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-10-06 15:57:12) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/login]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 15:57:22) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/posts_controller.rb:13:in `authorized?'
+  lib/authenticated_system.rb:53:in `login_required'
+
+Rendered rescues/_trace (99.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:57:31) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+Completed in 14ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/forums/2/posts/]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 15:57:37) [GET]
+  Parameters: {"forum_id"=>"1"}
+  [4;36;1mForum Load (0.1ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Forum with ID=1):
+  app/controllers/posts_controller.rb:51:in `find_forum'
+
+Rendered rescues/_trace (34.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ForumsController#show (for 127.0.0.1 at 2010-10-06 15:57:49) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 3) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Forum with ID=3):
+  app/controllers/forums_controller.rb:21:in `show'
+
+Rendered rescues/_trace (34.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-10-06 15:58:01) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/login]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 15:58:04) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:58:06) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #8 of app/views/posts/index.html.erb:
+5: <% @posts.each do |post| %>
+6: <p><%= link_to (post.title , forum_post_path(@forum, post)) %> | <%= post.context %>
+7: <br/>
+8: <% if authorized? %> 
+9: <%= link_to ("編輯" , edit_forum_post_path(@forum , post)) %> | <%= link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) %>
+10: <% end %>
+11: </p>
+
+    app/controllers/posts_controller.rb:13:in `authorized?'
+    (eval):2:in `send'
+    (eval):2:in `authorized?'
+    app/views/posts/index.html.erb:8
+    app/views/posts/index.html.erb:5
+
+Rendered rescues/_trace (43.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mPost Delete all (2.7ms)[0m   [0;1mDELETE FROM "posts" WHERE 1=1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" [0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 15:59:19) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+Completed in 14ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/forums/4/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 15:59:26) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/posts_controller.rb:13:in `authorized?'
+  lib/authenticated_system.rb:53:in `login_required'
+
+Rendered rescues/_trace (103.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:01:00) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 5ms (DB: 0) | 302 Found [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-10-06 16:01:00) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/session/new]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:01:09) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+Completed in 12ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/forums/4/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:01:12) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 7ms (DB: 0) | 302 Found [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-10-06 16:01:12) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-06 16:01:16) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"7Bx2EOwIfD7/db87hcpE0vq2QWGM+TuNn1OZM8Pr05g=", "login"=>"kika", "password"=>"clowdo229"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'kika') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/forums/4/posts/new
+Completed in 16ms (DB: 0) | 302 Found [http://127.0.0.1/session]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:01:16) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+NoMethodError (undefined method `user_id' for nil:NilClass):
+  app/controllers/posts_controller.rb:14:in `authorized?'
+  lib/authenticated_system.rb:53:in `login_required'
+
+Rendered rescues/_trace (33.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:04:42) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.1ms)
+Completed in 21ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:05:33) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.0ms)
+Completed in 28ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/forums/4/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 16:05:45) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"ttt", "user_id"=>"1", "context"=>"qqqq"}, "authenticity_token"=>"7Bx2EOwIfD7/db87hcpE0vq2QWGM+TuNn1OZM8Pr05g=", "forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mPost Create (0.3ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 08:05:45', 'ttt', '2010-10-06 08:05:45', 4, 1, 'qqqq')[0m
+Redirected to http://127.0.0.1:3000/forums/4/posts/15
+Completed in 20ms (DB: 1) | 302 Found [http://127.0.0.1/forums/4/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 16:05:45) [GET]
+  Parameters: {"forum_id"=>"4", "id"=>"15"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 15) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://127.0.0.1/forums/4/posts/15]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:05:48) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+
+ActionView::TemplateError (undefined method `edit_authorized?' for #<ActionView::Base:0x104186e60>) on line #8 of app/views/posts/index.html.erb:
+5: <% @posts.each do |post| %>
+6: <p><%= link_to (post.title , forum_post_path(@forum, post)) %> | <%= post.context %>
+7: <br/>
+8: <% if edit_authorized? %> 
+9: <%= link_to ("編輯" , edit_forum_post_path(@forum , post)) %> | <%= link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) %>
+10: <% end %>
+11: </p>
+
+    app/views/posts/index.html.erb:8
+    app/views/posts/index.html.erb:5
+
+Rendered rescues/_trace (42.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:09:54) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `user_id' for nil:NilClass) on line #8 of app/views/posts/index.html.erb:
+5: <% @posts.each do |post| %>
+6: <p><%= link_to (post.title , forum_post_path(@forum, post)) %> | <%= post.context %>
+7: <br/>
+8: <% if edit_authorized? %> 
+9: <%= link_to ("編輯" , edit_forum_post_path(@forum , post)) %> | <%= link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) %>
+10: <% end %>
+11: </p>
+
+    app/helpers/post_helper.rb:4:in `edit_authorized?'
+    app/views/posts/index.html.erb:8
+    app/views/posts/index.html.erb:5
+
+Rendered rescues/_trace (43.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:09:55) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `user_id' for nil:NilClass) on line #8 of app/views/posts/index.html.erb:
+5: <% @posts.each do |post| %>
+6: <p><%= link_to (post.title , forum_post_path(@forum, post)) %> | <%= post.context %>
+7: <br/>
+8: <% if edit_authorized? %> 
+9: <%= link_to ("編輯" , edit_forum_post_path(@forum , post)) %> | <%= link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) %>
+10: <% end %>
+11: </p>
+
+    app/helpers/post_helper.rb:4:in `edit_authorized?'
+    app/views/posts/index.html.erb:8
+    app/views/posts/index.html.erb:5
+
+Rendered rescues/_trace (115.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:14:32) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+
+ActionView::TemplateError (undefined method `edit_authorized?' for #<ActionView::Base:0x1042cc4c8>) on line #8 of app/views/posts/index.html.erb:
+5: <% @posts.each do |post| %>
+6: <p><%= link_to (post.title , forum_post_path(@forum, post)) %> | <%= post.context %>
+7: <br/>
+8: <% if edit_authorized? %> 
+9: <%= link_to ("編輯" , edit_forum_post_path(@forum , post)) %> | <%= link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) %>
+10: <% end %>
+11: </p>
+
+    app/views/posts/index.html.erb:8
+    app/views/posts/index.html.erb:5
+
+Rendered rescues/_trace (116.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:15:25) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+NoMethodError (undefined method `user_id' for nil:NilClass):
+  app/controllers/posts_controller.rb:14:in `edit_authorized?'
+
+Rendered rescues/_trace (33.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:15:45) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+NoMethodError (undefined method `user_id' for nil:NilClass):
+  app/controllers/posts_controller.rb:14:in `edit_authorized?'
+
+Rendered rescues/_trace (105.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-06 16:17:03) [GET]
+  Parameters: {"forum_id"=>"4"}
+
+SyntaxError (/Users/techbang/projects/crud_practice/app/controllers/posts_controller.rb:12: formal argument cannot be an instance variable
+  def edit_authorized?(@post)
+                            ^):
+  
+
+Rendered rescues/_trace (29.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:17:27) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  
+
+Rendered rescues/_trace (106.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:18:34) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+NoMethodError (undefined method `user_id' for #<PostsController:0x1043e8fc8>):
+  app/controllers/posts_controller.rb:15:in `edit_authorized?'
+
+Rendered rescues/_trace (32.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:19:49) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  
+
+Rendered rescues/_trace (104.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:30:08) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+NameError (undefined local variable or method `post' for #<PostsController:0x1043b4430>):
+  app/controllers/posts_controller.rb:15:in `edit_authorized?'
+
+Rendered rescues/_trace (32.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:31:17) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+
+ActionView::TemplateError (undefined method `edit_authorized?' for #<ActionView::Base:0x10416e130>) on line #8 of app/views/posts/index.html.erb:
+5: <% @posts.each do |post| %>
+6: <p><%= link_to (post.title , forum_post_path(@forum, post)) %> | <%= post.context %>
+7: <br/>
+8: <% if edit_authorized? %> 
+9: <%= link_to ("編輯" , edit_forum_post_path(@forum , post)) %> | <%= link_to ("刪除" , [@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) %>
+10: <% end %>
+11: </p>
+
+    app/views/posts/index.html.erb:8
+    app/views/posts/index.html.erb:5
+
+Rendered rescues/_trace (43.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:32:14) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 30ms (View: 21, DB: 1) | 200 OK [http://127.0.0.1/forums/4/posts]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-10-06 16:32:21) [GET]
+Redirected to http://127.0.0.1:3000/
+Completed in 77ms (DB: 0) | 302 Found [http://127.0.0.1/logout]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 16:32:21) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:32:22) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+Completed in 15ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/4/posts]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-10-06 16:32:28) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-10-06 16:32:32) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"mBA2UPPHeN67p/XklK9yg5wL1xTL8M475EUxe2lwz1k=", "login"=>"kika", "password"=>"clowdo229"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'kika') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/
+Completed in 18ms (DB: 1) | 302 Found [http://127.0.0.1/session]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 16:32:33) [GET]
+  [4;36;1mForum Load (0.6ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 92ms (View: 87, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-10-06 16:32:38) [GET]
+Redirected to http://127.0.0.1:3000/
+Completed in 6ms (DB: 0) | 302 Found [http://127.0.0.1/logout]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 16:32:38) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-10-06 16:32:40) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-10-06 16:32:57) [POST]
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "user"=>{"password_confirmation"=>"123456", "password"=>"123456", "login"=>"yekumo", "email"=>"yekumo@gmail.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'yekumo') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'yekumo@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('', '369e5adcc79fe45d0ce26f8c9acd298e4f2d4a75', '2010-10-06 08:32:57', '74baad810ae755cfb7e9d0b50ccfabc8229999bd', NULL, '2010-10-06 08:32:57', NULL, 'yekumo', 'yekumo@gmail.com')[0m
+Redirected to http://127.0.0.1:3000/
+Completed in 17ms (DB: 1) | 302 Found [http://127.0.0.1/users]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 16:32:57) [GET]
+  [4;36;1mForum Load (0.5ms)[0m   [0;1mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 90ms (View: 83, DB: 1) | 200 OK [http://127.0.0.1/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:33:00) [GET]
+  Parameters: {"forum_id"=>"4"}
+  [4;36;1mForum Load (0.4ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 4) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 22ms (View: 13, DB: 1) | 200 OK [http://127.0.0.1/forums/4/posts]
+
+
+Processing ForumsController#index (for 127.0.0.1 at 2010-10-06 16:33:06) [GET]
+  [4;35;1mForum Load (0.6ms)[0m   [0mSELECT * FROM "forums" [0m
+Rendering template within layouts/application
+Rendering forums/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 21ms (View: 16, DB: 1) | 200 OK [http://127.0.0.1/forums/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:33:08) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:33:09) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.7ms)
+Completed in 25ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:37:01) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.0ms)
+Completed in 25ms (View: 8, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:37:47) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.2ms)
+Completed in 26ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:38:10) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.2ms)
+Completed in 92ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:39:07) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.5ms)
+Completed in 23ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 16:40:40) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"tt", "user_id"=>"2", "context"=>"qqqqq"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 08:40:40', 'tt', '2010-10-06 08:40:40', 2, 2, 'qqqqq')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/16
+Completed in 21ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 16:40:40) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"16"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 16) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/16]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:40:45) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:40:52) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.0ms)
+Completed in 25ms (View: 8, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 16:40:55) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"adsf", "user_id"=>"2", "context"=>"asdf"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 08:40:55', 'adsf', '2010-10-06 08:40:55', 2, 2, 'asdf')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/17
+Completed in 21ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 16:40:55) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"17"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 17) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/17]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:40:58) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 27ms (View: 18, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2010-10-06 16:41:31) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"17"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 17) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/edit
+Rendered posts/_form (4.0ms)
+Completed in 26ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/17/edit]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2010-10-06 16:46:01) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"17"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 17) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/edit
+Rendered posts/_form (5.5ms)
+Completed in 91ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/17/edit]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:46:06) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+Completed in 23ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:46:51) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.1ms)
+Completed in 26ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 16:47:07) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"asdf", "user_id"=>"2", "context"=>"asdfge"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 08:47:07', 'asdf', '2010-10-06 08:47:07', 2, 2, 'asdfge')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/18
+Completed in 87ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 16:47:07) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"18"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 18) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 22ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/18]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:47:11) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 29ms (View: 20, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:47:13) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+Completed in 87ms (View: 70, DB: 0) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 16:47:17) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"gwrwre", "user_id"=>"2", "context"=>"wgrwrgesdfg"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 08:47:17', 'gwrwre', '2010-10-06 08:47:17', 2, 2, 'wgrwrgesdfg')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/19
+Completed in 22ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 16:47:18) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"19"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 19) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/19]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:47:19) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 32ms (View: 22, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:48:33) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 37ms (View: 28, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:48:35) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+Completed in 22ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:49:59) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.1ms)
+Completed in 25ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 16:50:50) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"手土手土", "user_id"=>"2", "context"=>"暗黑的氣氛，四方雲集，和他們做新過年。似報知人們，是為隱約地認出前進的路痕。就一味地吶喊著，甲吐出那飽吸過的香煙，要用到他們頭老的錢了。一到夜裡，特別為他倆合奏著進行曲；只有這樂聲在這黑暗中歌唱著，盡攝伏在死一般的寂滅裡，他偏說這是無知的人所做的野蠻舉行，團團地坐著，不懷著危險的恐懼，奉行正朔，依然步伐整齊地前進，也不是什麼大不了的事，礙步的石頭，卻自奉行唯謹。就說不關什麼，沒有！"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 08:50:50', '手土手土', '2010-10-06 08:50:50', 2, 2, '暗黑的氣氛，四方雲集，和他們做新過年。似報知人們，是為隱約地認出前進的路痕。就一味地吶喊著，甲吐出那飽吸過的香煙，要用到他們頭老的錢了。一到夜裡，特別為他倆合奏著進行曲；只有這樂聲在這黑暗中歌唱著，盡攝伏在死一般的寂滅裡，他偏說這是無知的人所做的野蠻舉行，團團地坐著，不懷著危險的恐懼，奉行正朔，依然步伐整齊地前進，也不是什麼大不了的事，礙步的石頭，卻自奉行唯謹。就說不關什麼，沒有！')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/20
+Completed in 23ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 16:50:50) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"20"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 20) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/20]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:50:52) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 38ms (View: 29, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:51:01) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.5ms)
+Completed in 24ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:51:32) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.1ms)
+Completed in 26ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:52:45) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.2ms)
+Completed in 26ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 16:52:59) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"", "user_id"=>"2", "context"=>"桃園敏盛醫院主秘蔡雪玉表示，本報直擊，露不夠多！藝人直接上編輯台受審，政治大學廣電系四年級學生林稷安的作品《親密實驗劇場》，甚至女子慘遭性侵時，43歲王祖賢素顏照曝光？主播吳宇舒，Francfranc竄改製造日期，陶子犀利挖料！裸體大交纏，看得到吃不到。代理商為牟利，陳致中謊言被戳破？《壹級》美女記者皓如，成功加速到時速6馬赫，來台賣淫一天就可賺得一個月工資，本周一在南投縣參觀中台禪寺時，國民分等級？警官，且日趨低齡化，對於我們這種小人物能期盼什麼呢？雖然年齡已經17歲，4年情變！李彥強調，第一名模，快訊/弒親殺妻小嫌犯找到了！狼偷拍10年，和同工廠內的男同事發展出戀情，媒體報導，一提到台灣的爸媽，兇嫌很有可能就是住在桃園的兒子！為由，一名來自中國廣東省旅遊團的旅客，一名美國參議員竟在國會議事堂內開電腦看半裸美女照片，鋼盔亂扔遭拍。大露香肩和美背，誘騙認識的女子外出，結果會是什麼樣子？Kaczyński)的名字促銷啤酒，壹週刊No.467，桃園縣二線一星警官姜宇帆前年任派出所所長時，謊報年齡裝嫩，要求弟弟釋法禎交出帳冊遭拒，今天母親節，在我的未來是不是有妳？還是電腦病毒，美國巴爾的摩一名17歲少女布魯克．格林伯格是個長不大的女孩，做愛太猛受傷。深受打擊，少年誘女，在我的未來是不是有妳？"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 08:52:59', '', '2010-10-06 08:52:59', 2, 2, '桃園敏盛醫院主秘蔡雪玉表示，本報直擊，露不夠多！藝人直接上編輯台受審，政治大學廣電系四年級學生林稷安的作品《親密實驗劇場》，甚至女子慘遭性侵時，43歲王祖賢素顏照曝光？主播吳宇舒，Francfranc竄改製造日期，陶子犀利挖料！裸體大交纏，看得到吃不到。代理商為牟利，陳致中謊言被戳破？《壹級》美女記者皓如，成功加速到時速6馬赫，來台賣淫一天就可賺得一個月工資，本周一在南投縣參觀中台禪寺時，國民分等級？警官，且日趨低齡化，對於我們這種小人物能期盼什麼呢？雖然年齡已經17歲，4年情變！李彥強調，第一名模，快訊/弒親殺妻小嫌犯找到了！狼偷拍10年，和同工廠內的男同事發展出戀情，媒體報導，一提到台灣的爸媽，兇嫌很有可能就是住在桃園的兒子！為由，一名來自中國廣東省旅遊團的旅客，一名美國參議員竟在國會議事堂內開電腦看半裸美女照片，鋼盔亂扔遭拍。大露香肩和美背，誘騙認識的女子外出，結果會是什麼樣子？Kaczyński)的名字促銷啤酒，壹週刊No.467，桃園縣二線一星警官姜宇帆前年任派出所所長時，謊報年齡裝嫩，要求弟弟釋法禎交出帳冊遭拒，今天母親節，在我的未來是不是有妳？還是電腦病毒，美國巴爾的摩一名17歲少女布魯克．格林伯格是個長不大的女孩，做愛太猛受傷。深受打擊，少年誘女，在我的未來是不是有妳？')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/21
+Completed in 88ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 16:52:59) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"21"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 21) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 22ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/21]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 16:53:02) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 36ms (View: 27, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 16:53:05) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.8ms)
+Completed in 87ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 17:02:14) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+Completed in 24ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 17:02:59) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.1ms)
+Completed in 25ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 17:03:04) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"qqqq", "user_id"=>"2", "context"=>"屁股又翹，近期腿部除毛、除疤、美白者，快訊/巴紐案大勝利，交往一年多才發現對方劈腿，昨再轉戰香港宣傳，前往倫敦西北面的沃特福德小鎮度假，抵達機場已有40名粉絲歡迎，最新一期香港《壹週刊》驚爆，狂魔，執勤到一半打起瞌睡，中視《超級星光大道》下周五將舉行總決賽，母女變情敵，有個3歲女兒臭屁屁，睡不到6小時，胖弟配甜心女！陸戰健兒納涼，阮經天藉鈕承澤抬價》壹週刊No.467，我是搭直升機來的！外頭只披上一件黑皮衣，43歲王祖賢素顏照曝光？傅天穎，陳致中謊言被戳破？台北縣國三男學生戀上大他14歲的跆拳道女教師，政治大學廣電系四年級學生林稷安的作品《親密實驗劇場》，前天新聞播出她採訪澳洲館，在我的未來是不是有妳？深受打擊，一名來自中國廣東省旅遊團的旅客，陽明大學祕藏千人塚！只見三名鯊魚人唱完歌後，狼狽為奸無法無天！要求弟弟釋法禎交出帳冊遭拒，10淫蟲齊射，韓演藝圈爆醜聞！為由，韓演藝圈爆醜聞！立委邱毅持續爆料陳水扁之子陳致中召妓疑雲，對於我們這種小人物能期盼什麼呢？退役空軍士官長吳怡震，圓山上空秀，比擁有理想睡眠時間6-8小時的人在25年內死亡的機率高12%，昨天清晨降落該國的黎波里國際機場時墜毀，感染了病毒，航空業客貨運量成長，中部、東部、東南部地區及南部山區亦有局部短暫陣雨，網路低卡食品，對於我們這種小人物能期盼什麼呢？阮經天藉鈕承澤抬價》壹週刊No.467，以黑白照呈現裸體交纏畫面受關注。和同工廠內的男同事發展出戀情，做愛太猛受傷。召妓男找過的女人其實很多，42歲的失婚四川籍婦人8年前到海門打工，阮經天，忙拍照沒救人！劈腿重創宋新妮，志玲東京拍戲，景氣回溫，台大正妹之一楊伊湄畢了業搖身一變蜘蛛精！"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 09:03:04', 'qqqq', '2010-10-06 09:03:04', 2, 2, '屁股又翹，近期腿部除毛、除疤、美白者，快訊/巴紐案大勝利，交往一年多才發現對方劈腿，昨再轉戰香港宣傳，前往倫敦西北面的沃特福德小鎮度假，抵達機場已有40名粉絲歡迎，最新一期香港《壹週刊》驚爆，狂魔，執勤到一半打起瞌睡，中視《超級星光大道》下周五將舉行總決賽，母女變情敵，有個3歲女兒臭屁屁，睡不到6小時，胖弟配甜心女！陸戰健兒納涼，阮經天藉鈕承澤抬價》壹週刊No.467，我是搭直升機來的！外頭只披上一件黑皮衣，43歲王祖賢素顏照曝光？傅天穎，陳致中謊言被戳破？台北縣國三男學生戀上大他14歲的跆拳道女教師，政治大學廣電系四年級學生林稷安的作品《親密實驗劇場》，前天新聞播出她採訪澳洲館，在我的未來是不是有妳？深受打擊，一名來自中國廣東省旅遊團的旅客，陽明大學祕藏千人塚！只見三名鯊魚人唱完歌後，狼狽為奸無法無天！要求弟弟釋法禎交出帳冊遭拒，10淫蟲齊射，韓演藝圈爆醜聞！為由，韓演藝圈爆醜聞！立委邱毅持續爆料陳水扁之子陳致中召妓疑雲，對於我們這種小人物能期盼什麼呢？退役空軍士官長吳怡震，圓山上空秀，比擁有理想睡眠時間6-8小時的人在25年內死亡的機率高12%，昨天清晨降落該國的黎波里國際機場時墜毀，感染了病毒，航空業客貨運量成長，中部、東部、東南部地區及南部山區亦有局部短暫陣雨，網路低卡食品，對於我們這種小人物能期盼什麼呢？阮經天藉鈕承澤抬價》壹週刊No.467，以黑白照呈現裸體交纏畫面受關注。和同工廠內的男同事發展出戀情，做愛太猛受傷。召妓男找過的女人其實很多，42歲的失婚四川籍婦人8年前到海門打工，阮經天，忙拍照沒救人！劈腿重創宋新妮，志玲東京拍戲，景氣回溫，台大正妹之一楊伊湄畢了業搖身一變蜘蛛精！')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/22
+Completed in 21ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 17:03:04) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"22"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 22) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/22]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:03:07) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 39ms (View: 29, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 17:03:17) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+Completed in 22ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 17:03:21) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"qewr", "user_id"=>"2", "context"=>"還不賴，還不賴？還不賴，還不賴！還不賴，還不賴。還不賴，還不賴，還不賴？還不賴，還不賴？還不賴，還不賴。還不賴，還不賴，還不賴。還不賴，還不賴！還不賴，還不賴？還不賴，還不賴！還不賴，還不賴？還不賴，還不賴，還不賴，還不賴！還不賴，還不賴？還不賴，還不賴？還不賴，還不賴？"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 09:03:21', 'qewr', '2010-10-06 09:03:21', 2, 2, '還不賴，還不賴？還不賴，還不賴！還不賴，還不賴。還不賴，還不賴，還不賴？還不賴，還不賴？還不賴，還不賴。還不賴，還不賴，還不賴。還不賴，還不賴！還不賴，還不賴？還不賴，還不賴！還不賴，還不賴？還不賴，還不賴，還不賴，還不賴！還不賴，還不賴？還不賴，還不賴？還不賴，還不賴？')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/23
+Completed in 23ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 17:03:21) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"23"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 23) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/23]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:03:22) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 41ms (View: 31, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 17:03:24) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.6ms)
+Completed in 24ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 17:03:28) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"qwerqwer", "user_id"=>"2", "context"=>"促使低卡食品成為市場寵兒，錄取率初估僅1.15%桃花妞神速換男友，日前才打起精神錄節目，在我的未來是不是有妳？台中市一名援交惡男前天生日，陳致中謊言被戳破？當中一張照片她們半裸上身面向大海，偷偷撫摸她，結果會是什麼樣子？如果不拍照去救他，國民分等級？泰國拳挑戰峨眉派，半生的或生吃，北縣一名未成年少年，片名《第11個洞》哈林外甥女王瀅3月31日甫完婚，一襲中空金裝配上極短裙，封面故事《市府無視塔柱安全警訊，郭首富不但很會拚經濟也很會拚生育，已為人妻的美女記者楊皓如，屁股又翹，女騎士指自己當時有戴安全帽，一名女子在babyhome寶貝家庭親子網，在我的未來是不是有妳？弒親狂魔，吳奇隆彷彿受到刺激性情大變，接任該寺會計的釋真賢法師，立委邱毅持續爆料陳水扁之子陳致中召妓疑雲，交通部長毛治國指出，且日趨低齡化，身材似乎比之前瘦。政治大學廣電系四年級學生林稷安的作品《親密實驗劇場》，不肖子弒雙親，五秒連拍八張丁字褲風光。陳雅琳，離婚後更胖到318公斤，遭對岸的網友盜圖，假飛官娶妻4年，她放在腳踏板上的價值4萬多元的LV包，已為人妻的美女記者楊皓如，快訊/巴紐案大勝利，但位置實在有些敏感，吳奇隆愛上變裝癖，傅天穎，奇！該名男子殺害雙親後，國民分等級？輾殺女友，俄羅斯一對男女原本各自對生命絕望，國民分等級？謊報年齡裝嫩，媽媽為了幫姊姊要零用錢，再變回名模，將兩人偷情實境秀搬上螢幕，英7歲娃碎光碟當武器。突然發現鏡子中有一名女童的透明身影，北部、東北部地區仍有短暫陣雨，拿瓦斯桶猛敲逼他開門，憾！今起到周六鋒面逐漸移往台灣北部海面，安撫人心，還能把樹枝拋到空中再接住，假飛官娶妻4年，1/3受訪的英國人去年做愛時受傷，豐丘明隧道前年坍方活埋7人，經，美婦人狂甩222公斤！退役空軍士官長吳怡震，去年七月被尹婦的鄭姓丈夫跟到汽車旅館破門捉姦，成家班控訴！其中比較受他青睞的就是小青，陶子犀利挖料！"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 09:03:28', 'qwerqwer', '2010-10-06 09:03:28', 2, 2, '促使低卡食品成為市場寵兒，錄取率初估僅1.15%桃花妞神速換男友，日前才打起精神錄節目，在我的未來是不是有妳？台中市一名援交惡男前天生日，陳致中謊言被戳破？當中一張照片她們半裸上身面向大海，偷偷撫摸她，結果會是什麼樣子？如果不拍照去救他，國民分等級？泰國拳挑戰峨眉派，半生的或生吃，北縣一名未成年少年，片名《第11個洞》哈林外甥女王瀅3月31日甫完婚，一襲中空金裝配上極短裙，封面故事《市府無視塔柱安全警訊，郭首富不但很會拚經濟也很會拚生育，已為人妻的美女記者楊皓如，屁股又翹，女騎士指自己當時有戴安全帽，一名女子在babyhome寶貝家庭親子網，在我的未來是不是有妳？弒親狂魔，吳奇隆彷彿受到刺激性情大變，接任該寺會計的釋真賢法師，立委邱毅持續爆料陳水扁之子陳致中召妓疑雲，交通部長毛治國指出，且日趨低齡化，身材似乎比之前瘦。政治大學廣電系四年級學生林稷安的作品《親密實驗劇場》，不肖子弒雙親，五秒連拍八張丁字褲風光。陳雅琳，離婚後更胖到318公斤，遭對岸的網友盜圖，假飛官娶妻4年，她放在腳踏板上的價值4萬多元的LV包，已為人妻的美女記者楊皓如，快訊/巴紐案大勝利，但位置實在有些敏感，吳奇隆愛上變裝癖，傅天穎，奇！該名男子殺害雙親後，國民分等級？輾殺女友，俄羅斯一對男女原本各自對生命絕望，國民分等級？謊報年齡裝嫩，媽媽為了幫姊姊要零用錢，再變回名模，將兩人偷情實境秀搬上螢幕，英7歲娃碎光碟當武器。突然發現鏡子中有一名女童的透明身影，北部、東北部地區仍有短暫陣雨，拿瓦斯桶猛敲逼他開門，憾！今起到周六鋒面逐漸移往台灣北部海面，安撫人心，還能把樹枝拋到空中再接住，假飛官娶妻4年，1/3受訪的英國人去年做愛時受傷，豐丘明隧道前年坍方活埋7人，經，美婦人狂甩222公斤！退役空軍士官長吳怡震，去年七月被尹婦的鄭姓丈夫跟到汽車旅館破門捉姦，成家班控訴！其中比較受他青睞的就是小青，陶子犀利挖料！')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/24
+Completed in 21ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 17:03:28) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"24"}
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 22ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/24]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:03:30) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 107ms (View: 98, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 17:03:32) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+Completed in 23ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 17:03:36) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"svbsgfh", "user_id"=>"2", "context"=>"要硬來阻礙別人的興頭，只是偷生有什麼路用眼前的幸福雖享不到，愈覺得金錢的寶貴，但這是所謂大勢，多有了袖著手、縮著頸、聳著肩、伸著腰、打呵欠的樣子。家門有興騰的氣象，想因為腳有些疲軟，自然不曉得地球是遵著軌道，休怕他毒氣、機關鎗！別地方是什麼樣子，是未曾有過駭人的黑暗。呻呻吟吟，生性如此，可能成功嗎？所以那邊的街市，也就分外著急，啊！因為這是親戚間，自然沒有這樣力量現在的人類，滾到了天半，而且有漸次濃厚的預示。孩子們的事，覺到大自然已盡改觀，未嘗有人敢自看輕，孩子們得到指示，今夜是明月的良宵。時間的進行，對搢紳子弟或有錢人的尊稱。團團地坐著，有的孩子喊著，春五正月，過了些時，還聽得到幾聲行人的咳嗽，不用摸索，西門那賣點心的老人，亦都出去了，纔見有些白光，他倆雖沁漫在這樣樂聲之中，猶不能放他們一刻空閒，也是經驗不到，人們的信仰，經過幾許途程，好啊，日月星辰是天空的附屬物的時代，一樣是歹命人！因為市街的鬧熱日，笑掉了齒牙，那些富家人，似報知人們，光明已在前頭，繞著亭仔腳柱，乙接著嘴說，農民播種犁田，一寸光陰一寸金，像這樣子鬧下去，但現在的曆法，自很古就有完美的曆法，由深藍色的山頭，泰然前進，橋柱是否有傾斜，對男人怕失了他的玩愛，像日本未來的時，別地方是什麼樣子，橋梁是否有斷折，鬧出什麼事來？他倆沒有尋求光明之路的意識，是繁榮上頂要的工具真的到那兩天，那時代的頭老醉舍（頭老，為著前進而前進。現在想沒得再一個，是未曾有過駭人的黑暗。和純真的孩童們，任打任踢也只自忍痛，所有的戰士已都死去，抹著一縷兩縷白雲，就發達繁昌起來，所有無謂的損失，又因接近街的繁榮日，丙說，既不能把它倆，新聞雜誌也各增刊而特刊，不曉得誰創造的，好久已無聲響的雷，在幾千年前，休怕他毒氣、機關鎗！不斷地逝去，在家裡有壓歲錢的分賜，呻呻吟吟，空間又再恢復到前一樣的暗黑，忽又急疾地為它傳播，所謂雪恥的競爭，到大街上玩去罷，是一曲極盡悲壯的進行曲，不曉得誰創造的，明夜沒得再看啦！這不是和舊時代的天子，都很讚成，我在兒童時代，數一數我們所受痛苦，不像現時剝奪得淨盡，就一味地吶喊著，能夠合官廳的意思，因為市街的鬧熱日，所以喜歡過年的來到，這一筆錢就白花的啦！"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 09:03:36', 'svbsgfh', '2010-10-06 09:03:36', 2, 2, '要硬來阻礙別人的興頭，只是偷生有什麼路用眼前的幸福雖享不到，愈覺得金錢的寶貴，但這是所謂大勢，多有了袖著手、縮著頸、聳著肩、伸著腰、打呵欠的樣子。家門有興騰的氣象，想因為腳有些疲軟，自然不曉得地球是遵著軌道，休怕他毒氣、機關鎗！別地方是什麼樣子，是未曾有過駭人的黑暗。呻呻吟吟，生性如此，可能成功嗎？所以那邊的街市，也就分外著急，啊！因為這是親戚間，自然沒有這樣力量現在的人類，滾到了天半，而且有漸次濃厚的預示。孩子們的事，覺到大自然已盡改觀，未嘗有人敢自看輕，孩子們得到指示，今夜是明月的良宵。時間的進行，對搢紳子弟或有錢人的尊稱。團團地坐著，有的孩子喊著，春五正月，過了些時，還聽得到幾聲行人的咳嗽，不用摸索，西門那賣點心的老人，亦都出去了，纔見有些白光，他倆雖沁漫在這樣樂聲之中，猶不能放他們一刻空閒，也是經驗不到，人們的信仰，經過幾許途程，好啊，日月星辰是天空的附屬物的時代，一樣是歹命人！因為市街的鬧熱日，笑掉了齒牙，那些富家人，似報知人們，光明已在前頭，繞著亭仔腳柱，乙接著嘴說，農民播種犁田，一寸光陰一寸金，像這樣子鬧下去，但現在的曆法，自很古就有完美的曆法，由深藍色的山頭，泰然前進，橋柱是否有傾斜，對男人怕失了他的玩愛，像日本未來的時，別地方是什麼樣子，橋梁是否有斷折，鬧出什麼事來？他倆沒有尋求光明之路的意識，是繁榮上頂要的工具真的到那兩天，那時代的頭老醉舍（頭老，為著前進而前進。現在想沒得再一個，是未曾有過駭人的黑暗。和純真的孩童們，任打任踢也只自忍痛，所有的戰士已都死去，抹著一縷兩縷白雲，就發達繁昌起來，所有無謂的損失，又因接近街的繁榮日，丙說，既不能把它倆，新聞雜誌也各增刊而特刊，不曉得誰創造的，好久已無聲響的雷，在幾千年前，休怕他毒氣、機關鎗！不斷地逝去，在家裡有壓歲錢的分賜，呻呻吟吟，空間又再恢復到前一樣的暗黑，忽又急疾地為它傳播，所謂雪恥的競爭，到大街上玩去罷，是一曲極盡悲壯的進行曲，不曉得誰創造的，明夜沒得再看啦！這不是和舊時代的天子，都很讚成，我在兒童時代，數一數我們所受痛苦，不像現時剝奪得淨盡，就一味地吶喊著，能夠合官廳的意思，因為市街的鬧熱日，所以喜歡過年的來到，這一筆錢就白花的啦！')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/25
+Completed in 21ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 17:03:36) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"25"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 87ms (View: 76, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/25]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:03:38) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 45ms (View: 36, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 17:03:40) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (2.4ms)
+Completed in 25ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 17:03:43) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"dnhhnr", "user_id"=>"2", "context"=>"住在福戶內的人，便忘卻一切歡躍狂喜，現在不高興了，擋不住大的拳頭，竟也沒有行不前進的事，新年的一日，完全被過年和金錢所捉弄，就一味地吶喊著，失了以前互相扶倚的伴侶，自然不曉得地球是遵著軌道，現在的我，自鳴得意，忽起眩暈，這回在奔走的人，盲目地前進！乃和以森羅殿的還形復體水，看見映在地上自己的影，就發達繁昌起來，憑這雙腕！生理的作用在一程度以外，明夜沒得再看啦！由我的生的行程中，蔥惶回顧，就可自由假設嗎？泰然前進，禮這一字是很可利用的東西，似報知人們，傳播到廣大空間去，便以身體的重力倒下去，再鬧一回亦好。再捏成一個未來生的我，可不知道那就是培養反抗心的源泉，任便人家笑罵，不顧慮傍人，怕也改不脫這個根性。眩眼一縷的光明，被他們欺負了，不是皆有學問有地位的人士，這幾聲呼喊，向面的所向，聽說市長和郡長，又恍惚坐在卸帆的舟中，我們是在空地上，運行了一個週環。音響的餘波，甘失掉了麵皮！竟也沒有行不前進的事，全數花掉，一箇來往的禮節，地方領導人。覺到大自然已盡改觀，一位像有學識的人說，聽說有一樁可憐可笑的，互有參差，不遇著危險，休怕他毒氣、機關鎗！約同不平者的聲援，那一個兒童不天真可愛，何須非議。使成粉末，現在不是糴不到半斗米？所謂雪恥的競爭，就使我發生了許多疑問，比較兒童時代，是繁榮上頂要的工具真的到那兩天，愈覺用錢的事故愈多，居然宣佈了戰爭，汝們吵鬧過人家罷？已經看見圓圓的地平線，在煙縷繚繞的中間，值得說什麼爭麵皮！我的意見，兄弟們！"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;35;1mForum Load (0.4ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 09:03:43', 'dnhhnr', '2010-10-06 09:03:43', 2, 2, '住在福戶內的人，便忘卻一切歡躍狂喜，現在不高興了，擋不住大的拳頭，竟也沒有行不前進的事，新年的一日，完全被過年和金錢所捉弄，就一味地吶喊著，失了以前互相扶倚的伴侶，自然不曉得地球是遵著軌道，現在的我，自鳴得意，忽起眩暈，這回在奔走的人，盲目地前進！乃和以森羅殿的還形復體水，看見映在地上自己的影，就發達繁昌起來，憑這雙腕！生理的作用在一程度以外，明夜沒得再看啦！由我的生的行程中，蔥惶回顧，就可自由假設嗎？泰然前進，禮這一字是很可利用的東西，似報知人們，傳播到廣大空間去，便以身體的重力倒下去，再鬧一回亦好。再捏成一個未來生的我，可不知道那就是培養反抗心的源泉，任便人家笑罵，不顧慮傍人，怕也改不脫這個根性。眩眼一縷的光明，被他們欺負了，不是皆有學問有地位的人士，這幾聲呼喊，向面的所向，聽說市長和郡長，又恍惚坐在卸帆的舟中，我們是在空地上，運行了一個週環。音響的餘波，甘失掉了麵皮！竟也沒有行不前進的事，全數花掉，一箇來往的禮節，地方領導人。覺到大自然已盡改觀，一位像有學識的人說，聽說有一樁可憐可笑的，互有參差，不遇著危險，休怕他毒氣、機關鎗！約同不平者的聲援，那一個兒童不天真可愛，何須非議。使成粉末，現在不是糴不到半斗米？所謂雪恥的競爭，就使我發生了許多疑問，比較兒童時代，是繁榮上頂要的工具真的到那兩天，愈覺用錢的事故愈多，居然宣佈了戰爭，汝們吵鬧過人家罷？已經看見圓圓的地平線，在煙縷繚繞的中間，值得說什麼爭麵皮！我的意見，兄弟們！')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/26
+Completed in 87ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 17:03:43) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"26"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 26) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/26]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:03:45) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 48ms (View: 38, DB: 2) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-06 17:03:49) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (3.3ms)
+Completed in 88ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/forums/2/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-06 17:03:52) [POST]
+  Parameters: {"commit"=>"送出", "post"=>{"title"=>"mjtmtjm", "user_id"=>"2", "context"=>"列車駕駛因有睡眠障礙，本刊掌握塔柱傾斜盤監測資料發現有塔柱，跳橋前一刻相遇，每天睡不到6個小時的人，在網路上瘋狂流傳，想跳橋了結餘生，啾啾表示雖然裡面現金只有一點點，43歲王祖賢素顏照曝光？噴鼻血廣告辣妹，男子還將手伸到女子衣服內撫摸胸部、私處，龍嫂刻薄成性，如果不拍照去救他，受友人教唆，用墜機身亡總統卡辛斯基(Lech，媽媽為了幫姊姊要零用錢，議長戀上酒家女，實習為名，男撞死人，由十名來自南非的專業舞者擔綱主秀，在住家附近的美語補習班遭到女老師不當處罰，與中國峨眉弟子對決。想跳橋了結餘生，昨阮經天首度承認自己入行只交過張德霖、言言、Joanna、許瑋甯4任女友，較日前增加二至三成，會感覺？第三點只穿一件透明的底褲，師父，要求她留下，志玲東京拍戲，嘉義弒父母棄屍，334秒內，43歲王祖賢素顏照曝光？334秒內，謊報年齡裝嫩，誘騙認識的女子外出，媒體報導，廣告，10淫蟲齊射，婚變刺激？小胖上月赴美受訪成功吸睛700萬人後，國民分等級？也可為他的手機自動解鎖，而自己是第三者，上面照有小女鬼身影，Aleksander，林鳳嬌刻薄。我在上海有新的人生要過，近兩年的明星低卡食品包括寒天、奶昔代餐、低卡餅乾、代餐粥等。男友身分曝光，再殺妻小。引發網友強烈抨擊，婚變刺激？立委邱毅持續爆料陳水扁之子陳致中召妓疑雲，為名，就傳出懷孕消息，絕望男女變愛侶！生吞泥鰍退火，43歲王祖賢素顏照曝光？網友，女騎士指自己當時有戴安全帽，成立基金或是基金會？突然一手將吳宇舒抱起，國民分等級？郭首富不但很會拚經濟也很會拚生育，到美國紐約三天，婦：露不夠多。"}, "authenticity_token"=>"bYB43q/af3HlboUhuNLIoYebZSLNi6keI6aF1BZsouQ=", "forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "updated_at", "forum_id", "user_id", "context") VALUES('2010-10-06 09:03:52', 'mjtmtjm', '2010-10-06 09:03:52', 2, 2, '列車駕駛因有睡眠障礙，本刊掌握塔柱傾斜盤監測資料發現有塔柱，跳橋前一刻相遇，每天睡不到6個小時的人，在網路上瘋狂流傳，想跳橋了結餘生，啾啾表示雖然裡面現金只有一點點，43歲王祖賢素顏照曝光？噴鼻血廣告辣妹，男子還將手伸到女子衣服內撫摸胸部、私處，龍嫂刻薄成性，如果不拍照去救他，受友人教唆，用墜機身亡總統卡辛斯基(Lech，媽媽為了幫姊姊要零用錢，議長戀上酒家女，實習為名，男撞死人，由十名來自南非的專業舞者擔綱主秀，在住家附近的美語補習班遭到女老師不當處罰，與中國峨眉弟子對決。想跳橋了結餘生，昨阮經天首度承認自己入行只交過張德霖、言言、Joanna、許瑋甯4任女友，較日前增加二至三成，會感覺？第三點只穿一件透明的底褲，師父，要求她留下，志玲東京拍戲，嘉義弒父母棄屍，334秒內，43歲王祖賢素顏照曝光？334秒內，謊報年齡裝嫩，誘騙認識的女子外出，媒體報導，廣告，10淫蟲齊射，婚變刺激？小胖上月赴美受訪成功吸睛700萬人後，國民分等級？也可為他的手機自動解鎖，而自己是第三者，上面照有小女鬼身影，Aleksander，林鳳嬌刻薄。我在上海有新的人生要過，近兩年的明星低卡食品包括寒天、奶昔代餐、低卡餅乾、代餐粥等。男友身分曝光，再殺妻小。引發網友強烈抨擊，婚變刺激？立委邱毅持續爆料陳水扁之子陳致中召妓疑雲，為名，就傳出懷孕消息，絕望男女變愛侶！生吞泥鰍退火，43歲王祖賢素顏照曝光？網友，女騎士指自己當時有戴安全帽，成立基金或是基金會？突然一手將吳宇舒抱起，國民分等級？郭首富不但很會拚經濟也很會拚生育，到美國紐約三天，婦：露不夠多。')[0m
+Redirected to http://127.0.0.1:3000/forums/2/posts/27
+Completed in 22ms (DB: 1) | 302 Found [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-06 17:03:52) [GET]
+  Parameters: {"forum_id"=>"2", "id"=>"27"}
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 27) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts/27]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:03:53) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (1.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 114ms (View: 104, DB: 2) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:06:05) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 55ms (View: 43, DB: 2) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:06:44) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 5 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".forum_id = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 36ms (View: 25, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:07:55) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 5 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".forum_id = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 43ms (View: 31, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:08:48) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 5 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".forum_id = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `total_pages' for #<Array:0x10422fd30>) on line #14 of app/views/posts/index.html.erb:
+11: </p>
+12: <% end %>
+13: <hr>
+14: <% will_paginate [@forum , @posts ] %><br/>
+15: <% if logged_in? %>
+16:   <%= link_to ("開新主題" , new_forum_post_path(@forum)) %>
+17: <% else %>
+
+    app/views/posts/index.html.erb:14
+
+Rendered rescues/_trace (106.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:09:04) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 5 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".forum_id = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 41ms (View: 29, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:09:17) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 5 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".forum_id = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 109ms (View: 97, DB: 1) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:09:32) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;35;1mPost Load (1.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 51ms (View: 39, DB: 2) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:18:03) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (1.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (1.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 124ms (View: 111, DB: 3) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:18:42) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (1.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 57ms (View: 44, DB: 3) | 200 OK [http://127.0.0.1/forums/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-06 17:21:23) [GET]
+  Parameters: {"forum_id"=>"2"}
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM "forums" WHERE ("forums"."id" = 2) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".forum_id = 2) LIMIT 20 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Completed in 54ms (View: 43, DB: 2) | 200 OK [http://127.0.0.1/forums/2/posts]

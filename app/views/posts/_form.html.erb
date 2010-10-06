@@ -1,7 +1,8 @@
 <% form_for([@forum, @post]) do |f| %>
-<p><%= f.label :title , "文章標題" %>:
-<%= f.text_field :title %></p>
+  <%= f.hidden_field :user_id , :value => current_user.id %> 
+  <p><%= f.label :title , "文章標題" %>:
+    <%= f.text_field :title , :class => 'lipsum' %></p>
 <p><%= f.label :context , "內容" %>:
-  <%= f.text_area :context , :class => "ipsum(1)" %></p>
+  <%= f.text_area :context , :class => 'lipsum(15)'  %></p>
 <%= f.submit "送出" %>
 <% end %>
