@@ -16,7 +16,9 @@ class PostsController < ApplicationController
   def create
 	
 	@post = @forum.posts.build(params[:post])
-	if @post.save
+  @post.user = current_user 
+
+  if @post.save
 	  redirect_to forum_post_path(@forum, @post)
 	else
 	  render :action => "new"
