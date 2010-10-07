@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   
   before_filter :require_is_admin
-  before_filter :find_user , :only => [:show , :edit , :update , :destroy]
+  before_filter :find_user , :only => [:show , :edit , :update , :destroy , :set_admin , :offset_admin]
   def index
     @users = User.all 
   end
@@ -45,19 +45,23 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
-  protected
-  def find_user
-    @user = User.find(params[:id]) 
-  end
-
   def set_admin
     @user.is_admin = true 
+    @user.save 
     redirect_to admin_users_path 
   end
 
   def offset_admin
     @user.is_admin = false 
+    @user.save 
     redirect_to admin_users_path 
   end
+  
+  protected
+ 
+  def find_user
+    @user = User.find(params[:id]) 
+  end
+
   
 end
