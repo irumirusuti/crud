@@ -1,0 +1,13 @@
+<h1><%= link_to( @forum.title , admin_forum_posts_path ) %></h1>
+<p><%= @forum.context %></p>
+<h3>主題列表</h3>總共<%= @posts.count %>篇
+<hr>
+<% @posts.each do |post| %>
+<p><%= link_to(post.title , admin_forum_post_path(@forum, post)) %> | <%= post.context %>
+<br/>
+<%= link_to("編輯" , edit_admin_forum_post_path(@forum , post)) %> | <%= link_to("刪除" , [:admin ,@forum, post] , :confirm => "確定刪除？" ,  :method => :delete) %>
+</p>
+<% end %>
+<hr>
+<%= will_paginate  @posts  %><br/>
+  <%#= link_to("開新主題" , new_admin_forum_post_path(@forum)) %>

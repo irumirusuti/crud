@@ -1,5 +1,6 @@
-class ForumsController < ApplicationController
-
+class Admin::ForumsController < ApplicationController
+ 
+  before_filter :require_is_admin  
   before_filter :find_forum , :only => [ :show , :edit , :update , :destroy ]
   
   def index

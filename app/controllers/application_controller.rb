@@ -10,7 +10,10 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
   private 
- # def current_user
- #   User.current_user 
- # end
+  def require_is_admin
+   if current_user == nil || !current_user.is_admin  
+    redirect_to root_url
+   end
+  end
+
 end

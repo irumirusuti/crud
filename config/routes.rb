@@ -7,6 +7,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
+  map.namespace(:admin) do |admin|
+    admin.resources :forums do |forum|
+      forum.resources :posts 
+    end
+    admin.resources :users
+  end
    map.resources :forums do |forum|
      forum.resources :posts
    end 

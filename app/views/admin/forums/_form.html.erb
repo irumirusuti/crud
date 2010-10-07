@@ -1,0 +1,7 @@
+<% form_for @forum do |f| %>
+	<p><%= f.label :title , '討論區標題' %>:
+	<%= f.text_field :title %></p>
+	<p><%= f.label :context , '文字解說' %>:
+	<%= f.text_field :context %></p>
+	<%= f.submit '確定' %>
+<% end %>

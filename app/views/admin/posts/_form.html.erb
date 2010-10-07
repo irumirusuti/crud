@@ -1,0 +1,7 @@
+<% form_for([@forum, @post]) do |f| %>
+  <p><%= f.label :title , "文章標題" %>:
+    <%= f.text_field :title , :class => 'lipsum' %></p>
+<p><%= f.label :context , "內容" %>:
+  <%= f.text_area :context , :class => 'lipsum(15)'  %></p>
+<%= f.submit "送出" %>
+<% end %>

@@ -1,9 +1,14 @@
 <html>
   <head></head>
   <body>
-    <h1>CRUD練習論壇</h1>
+    <h1><%= link_to("CRUD練習論壇" , root_url )%></h1>
+
+    <%#= render "users/user_bar" %>
     <% if logged_in? %> 
-    Hi! user:  <%= current_user.login %> / <%= link_to("登出", logout_path) %> 
+      Hi! user:  <%= current_user.login %> / <%= link_to("登出", logout_path) %><br/>
+      <% if current_user.is_admin %>
+        <%= link_to("管理討論區" , admin_forums_path) %> | <%= link_to("管理使用者" , admin_users_path) %> 
+      <% end %>
     <% else %> 
   <%= link_to("註冊" , signup_path ) %> /  <%= link_to("登入" , login_path) %><br/> 
   <% end %> 
