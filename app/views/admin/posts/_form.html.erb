@@ -1,7 +1,9 @@
-<% form_for([@forum, @post]) do |f| %>
+<% form_for([:admin, @forum, @post], :html => { :multipart => true } ) do |f| %>
   <p><%= f.label :title , "文章標題" %>:
     <%= f.text_field :title , :class => 'lipsum' %></p>
 <p><%= f.label :context , "內容" %>:
-  <%= f.text_area :context , :class => 'lipsum(15)'  %></p>
+   <%= f.text_area :context , :class => 'lipsum'  %></p>
+<p><%= f.label :avatar , "附加圖片" %>:
+  <%= f.file_field :avatar %></p>
 <%= f.submit "送出" %>
 <% end %>

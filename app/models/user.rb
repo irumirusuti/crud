@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+
+  # start restful authentication
+
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
@@ -49,5 +52,8 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
+
+  # end restful authentication
+
 
 end

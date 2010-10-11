@@ -18,7 +18,7 @@ class Admin::PostsController < ApplicationController
   @post.user = current_user 
 
   if @post.save
-	  redirect_to forum_post_path(@forum, @post)
+	  redirect_to admin_forum_post_path(@forum, @post)
 	else
 	  render :action => "new"
 	end
@@ -32,7 +32,7 @@ class Admin::PostsController < ApplicationController
 
   def update
 	  if @post.update_attributes(params[:post])
-      redirect_to forum_post_path(@forum , @post)
+      redirect_to admin_forum_post_path(@forum , @post)
     else
       render :action => "edit"
     end
